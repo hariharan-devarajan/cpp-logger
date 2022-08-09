@@ -2,15 +2,21 @@
 // Created by haridev on 2/14/22.
 //
 
-#ifndef MIMIR_LOGGER_H
-#define MIMIR_LOGGER_H
+#ifndef CPPLOGGER_LOGGER_H
+#define CPPLOGGER_LOGGER_H
 
 #include <cstdarg>
 #include <memory>
 #include <unordered_map>
 
-namespace mimir {
-enum LoggerType { NO_LOG = 0, LOG_ERROR = 1, LOG_WARN = 2, LOG_INFO = 3 };
+namespace cpplogger {
+enum LoggerType {
+  NO_LOG = 0,
+  LOG_PRINT = 1,
+  LOG_ERROR = 2,
+  LOG_WARN = 3,
+  LOG_INFO = 4
+};
 
 class Logger {
  private:
@@ -35,12 +41,17 @@ class Logger {
     return instance;
   }
 
-  void mimir::Logger::log(LoggerType type, char *string, ...) {
+  void log(LoggerType type, const char *string, ...) {
     va_list args;
     va_start(args, string);
     char buffer[256];
     int resu = vsprintf(buffer, string, args);
     switch (type) {
+      case LoggerType::LOG_PRINT: {
+        if (level >= LoggerType::LOG_PRINT)
+          fprintf(stdout, "[%s PRINT]: %s\n", _app_name.c_str(), buffer);
+        break;
+      }
       case LoggerType::LOG_INFO: {
         if (level >= LoggerType::LOG_INFO)
           fprintf(stdout, "[%s INFO]: %s\n", _app_name.c_str(), buffer);
@@ -62,9 +73,9 @@ class Logger {
   }
 };
 
-std::unordered_map<std::string, std::shared_ptr<mimir::Logger>>
-    mimir::Logger::instance_map =
-        std::unordered_map<std::string, std::shared_ptr<mimir::Logger>>();
-}  // namespace mimir
+std::unordered_map<std::string, std::shared_ptr<cpplogger::Logger>>
+    cpplogger::Logger::instance_map =
+        std::unordered_map<std::string, std::shared_ptr<cpplogger::Logger>>();
+}  // namespace cpplogger
 
-#endif  // MIMIR_LOGGER_H
+#endif  // CPPLOGGER_LOGGER_H
