@@ -73,9 +73,6 @@ class Logger {
   }
 };
 
-std::unordered_map<std::string, std::shared_ptr<cpplogger::Logger>>
-    cpplogger::Logger::instance_map =
-        std::unordered_map<std::string, std::shared_ptr<cpplogger::Logger>>();
 }  // namespace cpplogger
 
 #endif  // CPPLOGGER_LOGGER_H
