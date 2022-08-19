@@ -58,22 +58,21 @@ if (NOT CMAKE_INSTALL_RPATH)
 endif ()
 
 #------------------------------------------------------------------------------
-if (NOT CPP_LOGGER_EXTERNALLY_CONFIGURED)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
-            ${CMAKE_BINARY_DIR}/bin CACHE PATH "Single Directory for all Executables."
-            )
 
-    set(CMAKE_INCLUDE_OUTPUT_DIRECTORY
-            ${CMAKE_BINARY_DIR}/include CACHE PATH "Store the headers."
-            )
-    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY
-            ${CMAKE_BINARY_DIR}/lib CACHE PATH "Single Directory for all Libraries"
-            )
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY
-            ${CMAKE_BINARY_DIR}/lib CACHE PATH "Single Directory for all static libraries."
-            )
-endif ()
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
+        ${CMAKE_BINARY_DIR}/bin CACHE PATH "Single Directory for all Executables."
+        )
+
+set(CMAKE_INCLUDE_OUTPUT_DIRECTORY
+        ${CMAKE_BINARY_DIR}/include CACHE PATH "Store the headers."
+        )
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY
+        ${CMAKE_BINARY_DIR}/lib CACHE PATH "Single Directory for all Libraries"
+        )
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY
+        ${CMAKE_BINARY_DIR}/lib CACHE PATH "Single Directory for all static libraries."
+        )
 
 #------------------------------------------------------------------------------
 # Disallow in-source build
