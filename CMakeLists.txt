@@ -74,6 +74,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY
         ${CMAKE_BINARY_DIR}/lib CACHE PATH "Single Directory for all static libraries."
         )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 #------------------------------------------------------------------------------
 # Disallow in-source build
 #------------------------------------------------------------------------------
