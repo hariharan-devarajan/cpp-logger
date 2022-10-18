@@ -14,9 +14,11 @@ set(CPP_LOGGER_PACKAGE_STRING "${CPP_LOGGER_PACKAGE_NAME} ${CPP_LOGGER_PACKAGE_V
 set(CPP_LOGGER_PACKAGE_TARNAME "${CPP_LOGGER_PACKAGE}")
 
 
-set(CPP_LOGGER_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp-logger/logger.cpp)
+set(CPP_LOGGER_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp-logger/logger.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp-logger/clogger.cpp)
 set(CPP_LOGGER_PRIVATE_INCLUDE)
-set(CPP_LOGGER_PUBLIC_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/include/cpp-logger/logger.h)
+set(CPP_LOGGER_PUBLIC_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/include/cpp-logger/logger.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/cpp-logger/clogger.h)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_library(${PROJECT_NAME} SHARED)
 
