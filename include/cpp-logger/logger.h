@@ -44,7 +44,7 @@ class Logger {
   void log(LoggerType type, const char *string, ...) {
     va_list args;
     va_start(args, string);
-    char buffer[256];
+    char buffer[4096];
     int resu = vsprintf(buffer, string, args);
     switch (type) {
       case LoggerType::LOG_PRINT: {
