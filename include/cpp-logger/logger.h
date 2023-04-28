@@ -8,6 +8,7 @@
 #include <cstdarg>
 #include <memory>
 #include <unordered_map>
+#include <string>
 
 namespace cpplogger {
 enum LoggerType {
@@ -26,7 +27,7 @@ class Logger {
  public:
   LoggerType level;
 
-  Logger(std::string app_name)
+  explicit Logger(std::string app_name)
       : _app_name(app_name), level(LoggerType::LOG_ERROR) {}
 
   static std::shared_ptr<Logger> Instance(std::string app_name = "MIMIR") {
