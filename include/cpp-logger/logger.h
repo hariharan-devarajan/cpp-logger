@@ -8,6 +8,7 @@
 #include <cstdarg>
 #include <memory>
 #include <unordered_map>
+#include <string>
 
 namespace cpplogger {
 enum LoggerType {
