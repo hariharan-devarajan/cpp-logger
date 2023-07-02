@@ -51,21 +51,25 @@ class Logger {
       case LoggerType::LOG_PRINT: {
         if (level >= LoggerType::LOG_PRINT)
           fprintf(stdout, "[%s PRINT]: %s\n", _app_name.c_str(), buffer);
+        fflush(stdout);
         break;
       }
       case LoggerType::LOG_INFO: {
         if (level >= LoggerType::LOG_INFO)
           fprintf(stdout, "[%s INFO]: %s\n", _app_name.c_str(), buffer);
+          fflush(stdout);
         break;
       }
       case LoggerType::LOG_WARN: {
         if (level >= LoggerType::LOG_WARN)
           fprintf(stdout, "[%s WARN]: %s\n", _app_name.c_str(), buffer);
+          fflush(stdout);
         break;
       }
       case LoggerType::LOG_ERROR: {
         if (level >= LoggerType::LOG_ERROR)
           fprintf(stderr, "[%s ERROR]: %s\n", _app_name.c_str(), buffer);
+          fflush(stderr);
         break;
       }
     }
