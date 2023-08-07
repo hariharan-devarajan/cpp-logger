@@ -12,9 +12,6 @@ set(CPP_LOGGER_LIBRARY_PATH "@CMAKE_LIBRARY_OUTPUT_DIRECTORY@")
 set(CPP_LOGGER_LIBRARIES "-L${CPP_LOGGER_LIBRARY_PATH} -lcpp-logger")
 #message(STATUS "CPP_LOGGER_LIBRARIES: " ${CPP_LOGGER_LIBRARIES})
 set(CPP_LOGGER_DEFINITIONS "")
-if (NOT TARGET cpp-logger::cpp-logger)
-    add_library(cpp-logger::cpp-logger ALIAS cpp-logger)
-    include(FindPackageHandleStandardArgs)
-    find_package_handle_standard_args(cpp-logger
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(cpp-logger
             REQUIRED_VARS CPP_LOGGER_FOUND CPP_LOGGER_INCLUDE_DIRS CPP_LOGGER_LIBRARIES)
-endif ()
