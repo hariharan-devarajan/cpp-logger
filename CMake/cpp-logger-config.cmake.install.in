@@ -12,9 +12,6 @@ set(CPP_LOGGER_LIBRARY_PATH "@CPP_LOGGER_INSTALL_LIB_DIR@")
 #message(STATUS "CPP_LOGGER_LIBRARY_PATH: " ${CPP_LOGGER_LIBRARY_PATH})
 set(CPP_LOGGER_LIBRARIES "-L${CPP_LOGGER_LIBRARY_PATH} -lcpp-logger")
 set(CPP_LOGGER_DEFINITIONS "")
-if (NOT TARGET cpp-logger::cpp-logger)
-    add_library(cpp-logger::cpp-logger ALIAS cpp-logger)
-    include(FindPackageHandleStandardArgs)
-    find_package_handle_standard_args(cpp-logger
-            REQUIRED_VARS CPP_LOGGER_FOUND CPP_LOGGER_INCLUDE_DIRS CPP_LOGGER_LIBRARIES)
-endif ()
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(cpp-logger
+        REQUIRED_VARS CPP_LOGGER_FOUND CPP_LOGGER_INCLUDE_DIRS CPP_LOGGER_LIBRARIES)
