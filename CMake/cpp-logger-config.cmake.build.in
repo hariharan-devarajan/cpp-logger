@@ -13,6 +13,10 @@ target_link_directories(${CPP_LOGGER_LIBRARY_PATH})
 set(CPP_LOGGER_LIBRARIES cpp-logger)
 #message(STATUS "CPP_LOGGER_LIBRARIES: " ${CPP_LOGGER_LIBRARIES})
 set(CPP_LOGGER_DEFINITIONS "")
+
+if (NOT TARGET cpp-logger)
+  include(${CMAKE_CURRENT_LIST_DIR}/cpp-loggerTargets.cmake)
+endif()
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(cpp-logger
             REQUIRED_VARS CPP_LOGGER_FOUND CPP_LOGGER_INCLUDE_DIRS CPP_LOGGER_LIBRARIES)
