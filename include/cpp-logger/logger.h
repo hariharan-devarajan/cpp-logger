@@ -16,7 +16,8 @@ enum LoggerType {
   LOG_PRINT = 1,
   LOG_ERROR = 2,
   LOG_WARN = 3,
-  LOG_INFO = 4
+  LOG_INFO = 4,
+  LOG_DEBUG = 5
 };
 
 class Logger {
@@ -52,6 +53,12 @@ class Logger {
         if (level >= LoggerType::LOG_PRINT)
           fprintf(stdout, "[%s PRINT]: %s\n", _app_name.c_str(), buffer);
         fflush(stdout);
+        break;
+      }
+      case LoggerType::LOG_DEBUG: {
+        if (level >= LoggerType::LOG_DEBUG)
+          fprintf(stderr, "[%s DEBUG]: %s\n", _app_name.c_str(), buffer);
+        fflush(stderr);
         break;
       }
       case LoggerType::LOG_INFO: {
