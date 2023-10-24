@@ -48,6 +48,7 @@ class Logger {
     va_start(args, string);
     char buffer[4096];
     int resu = vsprintf(buffer, string, args);
+    (void)resu;
     switch (type) {
       case LoggerType::LOG_PRINT: {
         if (level >= LoggerType::LOG_PRINT)
@@ -56,28 +57,35 @@ class Logger {
         break;
       }
       case LoggerType::LOG_DEBUG: {
-        if (level >= LoggerType::LOG_DEBUG)
-          fprintf(stderr, "[%s DEBUG]: %s\n", _app_name.c_str(), buffer);
-        fflush(stderr);
+        if (level >= LoggerType::LOG_DEBUG) {
+            fprintf(stderr, "[%s DEBUG]: %s\n", _app_name.c_str(), buffer);
+            fflush(stderr);
+        }
         break;
       }
       case LoggerType::LOG_INFO: {
-        if (level >= LoggerType::LOG_INFO)
-          fprintf(stdout, "[%s INFO]: %s\n", _app_name.c_str(), buffer);
-          fflush(stdout);
+        if (level >= LoggerType::LOG_INFO) {
+            fprintf(stdout, "[%s INFO]: %s\n", _app_name.c_str(), buffer);
+            fflush(stdout);
+        }
         break;
       }
       case LoggerType::LOG_WARN: {
-        if (level >= LoggerType::LOG_WARN)
-          fprintf(stdout, "[%s WARN]: %s\n", _app_name.c_str(), buffer);
-          fflush(stdout);
+        if (level >= LoggerType::LOG_WARN) {
+            fprintf(stdout, "[%s WARN]: %s\n", _app_name.c_str(), buffer);
+            fflush(stdout);
+        }
         break;
       }
       case LoggerType::LOG_ERROR: {
-        if (level >= LoggerType::LOG_ERROR)
-          fprintf(stderr, "[%s ERROR]: %s\n", _app_name.c_str(), buffer);
-          fflush(stderr);
+        if (level >= LoggerType::LOG_ERROR) {
+            fprintf(stderr, "[%s ERROR]: %s\n", _app_name.c_str(), buffer);
+            fflush(stderr);
+        }
         break;
+      }
+      default: {
+          break;
       }
     }
 
