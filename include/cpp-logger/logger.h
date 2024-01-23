@@ -58,7 +58,7 @@ class Logger {
       }
       case LoggerType::LOG_DEBUG: {
         if (level >= LoggerType::LOG_DEBUG) {
-            fprintf(stderr, "[%s DEBUG]: %s\n", _app_name.c_str(), buffer);
+            fprintf(stdout, "[%s DEBUG]: %s\n", _app_name.c_str(), buffer);
             fflush(stderr);
         }
         break;
