@@ -32,7 +32,7 @@ class Logger {
   explicit Logger(std::string app_name)
       : _app_name(app_name), level(LoggerType::LOG_ERROR) {}
 
-  static std::shared_ptr<Logger> Instance(std::string app_name = "MIMIR") {
+  static std::shared_ptr<Logger> Instance(std::string app_name = "LOGGER") {
     auto iter = instance_map.find(app_name);
     std::shared_ptr<Logger> instance;
     if (iter == instance_map.end()) {
