@@ -17,7 +17,7 @@
 
 help(
 [[
-DYnamic and Asynchronous Data streamliner (CPP_LOGGER) version @CPP_LOGGER_VERSION@.
+CPP Logger (CPP_LOGGER) version @CPP_LOGGER_VERSION@.
 ]])
 
 whatis("Package: CPP_LOGGER")
