@@ -35,3 +35,5 @@
 # Project
 /.idea/
 /build/
+.cache
+.vscode
