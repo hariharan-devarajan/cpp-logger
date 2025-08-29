@@ -164,8 +164,8 @@ endfunction()
 # Source for CPP_LOGGER
 #-----------------------------------------------------------------------------
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
-include_directories(${CMAKE_SOURCE_DIR}/include)  # public header
-include_directories(${CMAKE_SOURCE_DIR}/src)  # private header
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)  # public header
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)  # private header
 include_directories(${CMAKE_BINARY_DIR}/include)  # build header
 
 set(CPP_LOGGER_SRC      ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp-logger/logger.cpp
@@ -249,7 +249,7 @@ export(EXPORT ${CPP_LOGGER_EXPORTED_TARGETS}
         FILE "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/${PROJECT_NAME}/${PROJECT_NAME}Targets.cmake")
 
 # Write the configure file
-configure_file("${CMAKE_SOURCE_DIR}/cmake/configure_files/cpp_logger_config.hpp.in"
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/configure_files/cpp_logger_config.hpp.in"
                "${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/cpp-logger/cpp_logger_config.hpp" @ONLY)
 
 
@@ -379,7 +379,7 @@ if (NOT (CPP_LOGGER_MODULEFILE_NAME MATCHES ".+\.lua"))
 endif ()
 
 configure_file(
-  "${CMAKE_SOURCE_DIR}/cmake/configure_files/cpp_logger_module.lua.in"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/configure_files/cpp_logger_module.lua.in"
   "${CMAKE_BINARY_DIR}/cpp_logger_module.lua.install"
   @ONLY)
 
