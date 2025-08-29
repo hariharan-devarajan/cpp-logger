@@ -33,11 +33,11 @@ class Logger {
   explicit Logger(std::string app_name, FILE *file = stdout)
       : _app_name(app_name), level(LoggerType::LOG_ERROR), _file(file) {}
 
-  static std::shared_ptr<Logger> Instance(std::string app_name = "LOGGER") {
+  static std::shared_ptr<Logger> Instance(std::string app_name = "LOGGER", FILE *file = stdout) {
     auto iter = instance_map.find(app_name);
     std::shared_ptr<Logger> instance;
     if (iter == instance_map.end()) {
-      instance = std::make_shared<Logger>(app_name);
+      instance = std::make_shared<Logger>(app_name, file);
       instance_map.emplace(app_name, instance);
     } else {
       instance = iter->second;
