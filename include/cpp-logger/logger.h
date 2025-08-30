@@ -23,15 +23,15 @@ enum LoggerType {
 
 class Logger {
  private:
-  static std::unordered_map<std::string, std::shared_ptr<Logger>> instance_map;
   std::string _app_name;
   FILE *_file;
+  static std::unordered_map<std::string, std::shared_ptr<Logger>> instance_map;
 
  public:
   LoggerType level;
 
   explicit Logger(std::string app_name, FILE *file = stdout)
-      : _app_name(app_name), level(LoggerType::LOG_ERROR), _file(file) {}
+      : _app_name(app_name), _file(file), level(LoggerType::LOG_ERROR) {}
 
   static std::shared_ptr<Logger> Instance(std::string app_name = "LOGGER", FILE *file = stdout) {
     auto iter = instance_map.find(app_name);
